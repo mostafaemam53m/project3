@@ -14,6 +14,7 @@ include 'db.php';
 
 // Add task
 if (isset($_POST['add'])) {
+    // to prevent inject SQL atack
     $title = mysqli_real_escape_string($conn, $_POST['title']);
     $query = "INSERT INTO tasks (title) VALUES ('$title')";
     mysqli_query($conn, $query);
